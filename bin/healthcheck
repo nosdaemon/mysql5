@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export MYSQL_PWD=`cat /run/secrets/mysql_root_password`
+
+response=`mysqlshow -h localhost -u root | grep mysql |wc -l`
+
+if [ $response != "1" ]; then
+    echo "FAIL"
+    exit 1
+fi
+
+echo "OK"
+
+exit 0
+
