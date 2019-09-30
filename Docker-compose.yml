@@ -16,5 +16,6 @@ services:
 
 secrets:
   mysql_root_password:
-    external:
-      name: mysql_root_password
+    file: ./mysql_root_password
+  my_other_secret:
+    external: true
