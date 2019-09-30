@@ -11,6 +11,8 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./data/backup:/backup
+    ports:
+      - 3306:3306
 
 secrets:
   mysql_root_password:
