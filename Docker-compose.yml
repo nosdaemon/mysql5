@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  db:
+    image: nosdaemon/mysql5
+    environment:
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
+    secrets:
+      - mysql_root_password
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./data/backup:/backup
+
+secrets:
+  mysql_root_password:
+    external:
+      name: mysql_root_password
